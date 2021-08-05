@@ -4,7 +4,7 @@ import { multerConfig } from './config/multer';
 import multer from 'multer';
 
 router.get('/production', (req, res) => {
-  return res.json({ msg: 'server running, PORT 3000' })
+  return res.json({ msg: 'server running, Docker' })
 });
 
 import { AuthenticateUserController } from './controllers/postgres/AuthenticateUserController';

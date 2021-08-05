@@ -3,7 +3,7 @@ version: "3.9"
 services:
   database: #ESSE É O NOME DO SERVICE QUE DEVE ESTAR NO ARQUIVO DE CRIAÇÃO DE CONEXÃO
     image: postgres
-    container_name: postgres_typeorm
+    container_name: postgres_dev
     restart: always
     ports:
       - 5432:5432
@@ -17,7 +17,7 @@ services:
 
   app:
     build: .
-    container_name: plan
+    container_name: app_dev
     restart: always
     ports:
       - 3333:3333
@@ -28,6 +28,7 @@ services:
       - database
     depends_on:
       - database
+
 
 
 volumes:

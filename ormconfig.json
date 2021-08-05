@@ -1,0 +1,21 @@
+{
+  "type": "postgres",
+  "host": 5432,
+  "port": "localhost",
+  "username": "dev",
+  "password": "dev",
+  "database": "dev",
+  "synchronize": true,
+  "logging": true,
+  "autoSchemaSync": true,
+  "entities": [
+    "src/entities/**/*.ts"
+  ],
+  "migrations": [
+      "src/database/migrations/**/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "src/database/migrations",
+    "entitiesDir": "src/entities"
+  }
+}

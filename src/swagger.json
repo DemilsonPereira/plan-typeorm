@@ -1,0 +1,545 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Wire | back-end",
+    "description": "Esta aplicação faz a conexão com API do CNT e Base de dados do Postgres",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/v1",
+      "description": "API de teste"
+    },
+    {
+      "url": "http://131.255.11.136:3000/v1",
+      "description": "API de Produção"
+    }
+  ],
+  "paths": {
+    "/api/cidade": {
+      "post": {
+        "summary": "Cadastro de Cidade",
+        "description": "Está rota será responsável por cadastrar uma nova Cidade",
+        "tags": [
+          "Cidade"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cidade"
+              },
+              "examples": {
+                "cidade": {
+                  "value": {
+                    "cidade": "Manaus",
+                    "estado": "AM"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cidades": {
+      "get": {
+        "summary": "Listar todas as Cidade",
+        "description": "Está rota será responsável por listar todas as Cidade",
+        "tags": [
+          "Cidade"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cidade"
+              },
+              "examples": {
+                "cidade": {
+                  "value": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cidades/estado": {
+      "post": {
+        "summary": "Listar Cidades por Estado",
+        "description": "Está rota será responsável por listar todas as Cidade por Estado",
+        "tags": [
+          "Cidade"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cidade"
+              },
+              "examples": {
+                "cidade": {
+                  "value": {
+                    "estado": "AM"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/plano": {
+      "post": {
+        "summary": "Cadastro de Plano",
+        "description": "Está rota será responsável por cadastrar um novo Plano",
+        "tags": [
+          "Plano"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Plano"
+              },
+              "examples": {
+                "plano": {
+                  "value": {
+                    "tipo": "Residencial",
+                    "plano": "500",
+                    "deezer": true,
+                    "looke": true,
+                    "feature1": "500 Mpbs download",
+                    "feature2": "200 Mpbs upload",
+                    "feature3": "Garantia 40%",
+                    "feature4": "Ideal para x e x dispositivos",
+                    "feature5": "SLA 48 horas",
+                    "feature6": "IPv4: CGNAT / IPv6: GUA",
+                    "feature7": "Franquia 2400 GB",
+                    "feature8": "",
+                    "feature9": "",
+                    "feature10": "",
+                    "cidade_id": "28635dbf-6b75-4390-BBBBB-6969696969"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/planos/:id": {
+      "post": {
+        "summary": "Listar Planos por Cidade",
+        "description": "Está rota será responsável por listar todos os planos por Cidade",
+        "tags": [
+          "Plano"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Plano"
+              },
+              "examples": {
+                "plano": {
+                  "value": {
+                    "cidade_id": "28635dbf-6b75-adasdasd-adasdas-00dasdadwacf0"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/planos": {
+      "get": {
+        "summary": "Listar todos os Planos",
+        "description": "Está rota será responsável por listar todos os planos",
+        "tags": [
+          "Plano"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Plano"
+              },
+              "examples": {
+                "plano": {
+                  "value": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/plano/:id": {
+      "put": {
+        "summary": "Alterar um plano por ID",
+        "description": "Está rota será responsável por alterar um plano por ID",
+        "tags": [
+          "Plano"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Plano"
+              },
+              "examples": {
+                "plano": {
+                  "value": {
+                    "id": "ee7a9b06-b2b3-dadassad-94c1-ff3adsadadadadadas",
+                    "tipo": "Residencial",
+                    "plano": "500",
+                    "deezer": true,
+                    "looke": true,
+                    "feature1": "500 Mpbs download",
+                    "feature2": "200 Mpbs upload",
+                    "feature3": "Garantia 40%",
+                    "feature4": "Ideal para x e x dispositivos",
+                    "feature5": "SLA 48 horas",
+                    "feature6": "IPv4: CGNAT / IPv6: GUA",
+                    "feature7": "Franquia 2400 GB",
+                    "feature8": "",
+                    "feature9": "",
+                    "feature10": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/plano/::id": {
+      "delete": {
+        "summary": "Remove um plano por ID",
+        "description": "Está rota será responsável por remove um plano por ID",
+        "tags": [
+          "Plano"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Plano"
+              },
+              "examples": {
+                "plano": {
+                  "value": {
+                    "id": "ee7a9b06-b2b3-dsadas-94c1-ff3adsadadadadadas"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/loja": {
+      "post": {
+        "summary": "Cadastro de Loja",
+        "description": "Está rota será responsável por cadastro de Loja",
+        "tags": [
+          "Loja"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Plano"
+              },
+              "examples": {
+                "loja": {
+                  "value": {
+                    "cep": "55555-444",
+                    "logradouro": "Travessa setembro",
+                    "numero": "S/N",
+                    "complemento": "LOJA 6",
+                    "bairro": "Centro",
+                    "url_maps": "",
+                    "cidade_id": "dadadwwdas-61f3-4b0b-960b-dasdawadas"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/loja/list/:id": {
+      "post": {
+        "summary": "Listar loja por Cidade",
+        "description": "Está rota será responsável por listar todas as lojas por Cidade",
+        "tags": [
+          "Loja"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Plano"
+              },
+              "examples": {
+                "loja": {
+                  "value": {
+                    "cidade_id": "adasdwadw-61f3-wadwa-wwwww-7dcbd031e7b3"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/loja/:id": {
+      "put": {
+        "summary": "Atualizar Loja por ID",
+        "description": "Está rota será responsável por atualizar Loja por ID",
+        "tags": [
+          "Loja"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Plano"
+              },
+              "examples": {
+                "loja": {
+                  "value": {
+                    "id": "655a82d1-ad98-4087-879f-2f7d11b6d568",
+                    "cep": "sadsadasdad-999",
+                    "logradouro": "Travasdasdasdasdasdasessa 7 de setembro",
+                    "numero": "S/N",
+                    "complemento": "dasdasdadada 6",
+                    "bairro": "Centro",
+                    "url_maps": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/loja/::id": {
+      "delete": {
+        "summary": "Remove uma Loja por ID",
+        "description": "Está rota será responsável por remover uma Loja por ID",
+        "tags": [
+          "Loja"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Plano"
+              },
+              "examples": {
+                "loja": {
+                  "value": {
+                    "id": "dawdwadw666-ad98-4087-879f-dwadsdaw8854"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/user": {
+      "post": {
+        "summary": "Cadastro de Usuário",
+        "description": "Está rota será responsável por cadastrar um usuário",
+        "tags": [
+          "Usuário"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Plano"
+              },
+              "examples": {
+                "usuario": {
+                  "value": {
+                    "name": "Fulano",
+                    "email": "fulano@gmail.com",
+                    "admin": false,
+                    "password": "password"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/user/list": {
+      "get": {
+        "summary": "Listar todos os Usuários",
+        "description": "Está rota será responsável por listar todos os usuários",
+        "tags": [
+          "Usuário"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Plano"
+              },
+              "examples": {
+                "usuario": {
+                  "value": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/user/login": {
+      "post": {
+        "summary": "Gerar token por autenticação",
+        "description": "Está rota será responsável por gerar um token de autenticação para as rotas de create, update e delete",
+        "tags": [
+          "Usuário"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Plano"
+              },
+              "examples": {
+                "usuario": {
+                  "value": {
+                    "email": "fulano@gmail.com",
+                    "password": "password"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Cidade": {
+        "type": "object",
+        "properties": {
+          "cidade": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string"
+          }
+        }
+      },
+      "Plano": {
+        "type": "object",
+        "properties": {
+          "cidade": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "plano": {
+            "type": "string"
+          },
+          "deezer": {
+            "type": "boolean"
+          },
+          "looke": {
+            "type": "boolean"
+          },
+          "feature1": {
+            "type": "string"
+          },
+          "feature2": {
+            "type": "string"
+          },
+          "feature3": {
+            "type": "string"
+          },
+          "feature4": {
+            "type": "string"
+          },
+          "feature5": {
+            "type": "string"
+          },
+          "feature6": {
+            "type": "string"
+          },
+          "feature7": {
+            "type": "string"
+          },
+          "feature8": {
+            "type": "string"
+          },
+          "feature9": {
+            "type": "string"
+          },
+          "feature10": {
+            "type": "string"
+          },
+          "cidade_id": {
+            "type": "string"
+          }
+        }
+      },
+      "Loja": {
+        "type": "object",
+        "properties": {
+          "cep": {
+            "type": "string"
+          },
+          "logradouro": {
+            "type": "string"
+          },
+          "numero": {
+            "type": "string"
+          },
+          "complemento": {
+            "type": "string"
+          },
+          "bairro": {
+            "type": "string"
+          },
+          "url_maps": {
+            "type": "string"
+          },
+          "cidade_id": {
+            "type": "string"
+          }
+        }
+      },
+      "Usuario": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "admin": {
+            "type": "boolean"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

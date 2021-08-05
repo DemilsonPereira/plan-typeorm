@@ -1,6 +1,7 @@
-import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn, JoinColumn, ManyToOne } from "typeorm";
+import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn, JoinColumn, ManyToOne, OneToMany } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Cidade } from "./Cidade";
+import { Image } from './Image';
 
 @Entity("lojas")
 class Loja {
@@ -29,9 +30,15 @@ class Loja {
   @Column()
   url_maps: string;
 
-  @JoinColumn({ name: "cidade_id" })
+  @Column()
+  cidade_id: string;
+
   @ManyToOne(() => Cidade)
-  cidade_id: Cidade
+  @JoinColumn({ name: "cidade_id" })
+  cidade: Cidade;
+
+  @OneToMany(() => Image, image => image.loja)
+  images: Image[]
 
   @CreateDateColumn()
   created_at: Date;

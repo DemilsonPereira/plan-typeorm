@@ -17,9 +17,12 @@ class Image {
   @Column()
   url: string;
 
+  @Column()
+  loja_id: string;
+
   @JoinColumn({ name: "loja_id" })
-  @ManyToOne(() => Loja)
-  loja_id: Loja
+  @ManyToOne(() => Loja, loja => loja.images)
+  loja: Loja;
 
   @CreateDateColumn()
   created_at: Date;

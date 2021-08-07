@@ -18,7 +18,7 @@ class DeleteImageService {
     const deleteImageId = await imagesRepositories.delete(id);
 
     return deleteImageId;
-    
+
   }
 }
 

@@ -3,7 +3,7 @@ import { DeleteImageService } from '../../services/postgres/DeleteImageService';
 
 class DeleteImageController {
   async handle(request: Request, response: Response) {
-    const { id: idImage } = request.body
+    const { id: idImage } = request.body;
 
     const deleteImageService = new DeleteImageService();
 

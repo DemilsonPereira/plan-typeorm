@@ -66,7 +66,7 @@ router.put('/api/loja/:id', ensureAuthenticated, ensureAdmin, updateLojaControll
 router.delete('/api/plano/:id', ensureAuthenticated, ensureAdmin, deletePlanoController.handle);
 router.delete('/api/loja/:id', ensureAuthenticated, ensureAdmin, deleteLojaController.handle);
 router.post('/api/image/:loja_id', multer(multerConfig).single('image'), uploadImageController.handle);
-router.post('/api/image/:id', deleteImageController.handle);
+router.delete('/api/image/:id', ensureAuthenticated, ensureAdmin, deleteImageController.handle);
 router.get('/api/loja', listLojasController.handle);
 
 

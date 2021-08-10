@@ -7,7 +7,7 @@ class DeleteImageController {
 
     const deleteImageService = new DeleteImageService();
 
-    const deleteImageId = deleteImageService.execute(idImage);
+    const deleteImageId =  await deleteImageService.execute(idImage);
 
     return response.status(200).send();
   }

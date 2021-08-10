@@ -5,7 +5,7 @@ class DeleteImageService {
   async execute(id: string) {
     const imagesRepositories = getCustomRepository(ImagesRepositories);
 
-    if (!ImagesRepositories) {
+    if (!id) {
       throw new Error('Incorrect ID!');
     }
 

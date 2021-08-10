@@ -26,6 +26,7 @@ import { UpdatePlanoController } from './controllers/postgres/UpdatePlanoControl
 import { DeletePlanoController } from './controllers/postgres/DeletePlanoController';
 import { UploadImageController } from './controllers/postgres/UploadImageController';
 import { ListLojasController } from './controllers/postgres/ListLojasController';
+import { DeleteImageController } from './controllers/postgres/DeleteImageController';
 
 
 const createCidadeControler = new CreateCidadeControler();
@@ -45,6 +46,8 @@ const updatePlanoController = new UpdatePlanoController()
 const deletePlanoController = new DeletePlanoController();
 const uploadImageController = new UploadImageController()
 const listLojasController = new ListLojasController()
+const deleteImageController = new DeleteImageController()
+
 
 
 router.post('/api/cidade', ensureAuthenticated, ensureAdmin, createCidadeControler.handle);
@@ -63,6 +66,7 @@ router.put('/api/loja/:id', ensureAuthenticated, ensureAdmin, updateLojaControll
 router.delete('/api/plano/:id', ensureAuthenticated, ensureAdmin, deletePlanoController.handle);
 router.delete('/api/loja/:id', ensureAuthenticated, ensureAdmin, deleteLojaController.handle);
 router.post('/api/image/:loja_id', multer(multerConfig).single('image'), uploadImageController.handle);
+router.delete('/api/image/:id', ensureAuthenticated, ensureAdmin, deleteImageController.handle);
 router.get('/api/loja', listLojasController.handle);
 
 

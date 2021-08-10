@@ -5,7 +5,7 @@ class ListLojasByCidadeService {
   async execute(cidade_id: string) {
     const lojasRepositories = getCustomRepository(LojasRepositories);
 
-    const LojaCidade = await lojasRepositories.findOne({
+    const LojaCidade = await lojasRepositories.find({
       where: {
         cidade_id: cidade_id,
       },

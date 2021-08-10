@@ -7,7 +7,7 @@ class DeletePlanoController {
 
     const deletePlanoService = new DeletePlanoService();
 
-    const deletePlanoId = deletePlanoService.execute(idPlano);
+    const deletePlanoId = await deletePlanoService.execute(idPlano);
 
     return response.status(200).send();
   }

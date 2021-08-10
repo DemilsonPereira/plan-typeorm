@@ -7,6 +7,8 @@ class UploadImageController {
     const { originalname: name, filename: path, fieldname: url } = request.file;
     const { loja_id } = request.params;
 
+    console.log(request.file)
+
     const uploadImageService = new UploadImageService();
 
     const lojaImage = await uploadImageService.execute({

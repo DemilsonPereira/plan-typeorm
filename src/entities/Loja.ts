@@ -30,6 +30,9 @@ class Loja {
   @Column()
   url_maps: string;
 
+  @Column({ nullable: true })
+  url_gmn: string;
+
   @Column()
   cidade_id: string;
 

@@ -11,6 +11,7 @@ class CreateLojaController {
       complemento,
       bairro,
       url_maps,
+      url_gmn,
       cidade_id
     } = request.body;
 
@@ -23,6 +24,7 @@ class CreateLojaController {
       complemento,
       bairro,
       url_maps,
+      url_gmn,
       cidade_id
     });
 

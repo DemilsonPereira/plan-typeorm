@@ -3,7 +3,7 @@ import { Loja } from "../../entities/Loja";
 import { LojasRepositories } from "../../repositories/LojasRepositories";
 
 class UpdateLojaService {
-  async execute(id: string, cep: string, logradouro: string, numero: string, complemento: string, bairro: string, url_maps: string) {
+  async execute(id: string, cep: string, logradouro: string, numero: string, complemento: string, bairro: string, url_maps: string, url_gmn: string) {
     const lojasRepositories = getCustomRepository(LojasRepositories);
 
     if (!id) {
@@ -21,7 +21,7 @@ class UpdateLojaService {
     const updateLojaId = await getConnection()
       .createQueryBuilder()
       .update(Loja)
-      .set({ cep: cep, logradouro: logradouro, numero: numero, complemento: complemento, bairro: bairro, url_maps: url_maps })
+      .set({ cep: cep, logradouro: logradouro, numero: numero, complemento: complemento, bairro: bairro, url_maps: url_maps, url_gmn })
       .where({ id: id })
       .execute();
 

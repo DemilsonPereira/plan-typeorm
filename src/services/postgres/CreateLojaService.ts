@@ -9,6 +9,7 @@ class CreateLojaService {
     complemento,
     bairro,
     url_maps,
+    url_gmn,
     cidade_id
   }) {
 
@@ -34,6 +35,7 @@ class CreateLojaService {
       complemento,
       bairro,
       url_maps,
+      url_gmn,
       cidade_id
     });
 

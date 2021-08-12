@@ -30,7 +30,7 @@ class Loja {
   @Column()
   url_maps: string;
 
-  @Column()
+  @Column({ nullable: true})
   url_gmn?: string;
 
   @Column()
